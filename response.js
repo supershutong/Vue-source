@@ -7,7 +7,9 @@ let watch = cb => {
 }
 
 class Dep {
-  deps = new Set()
+  constructor() {
+    this.deps = new Set()
+  }
   depend() {
     if (active) {
       this.deps.add(active)
@@ -35,7 +37,6 @@ let ref = initValue => {
 }
 
 x = ref(1)
-
 watch(() => {
   console.log(`hello ${x.value} `)
 })

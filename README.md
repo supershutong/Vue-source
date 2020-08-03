@@ -6,3 +6,6 @@ vue源码核心模块实现
 2. nextTick 异步渲染队列
 3. diffPatch VNode节点diff算法（TODO）
 4. computed、watch、watchEffect
+   - computed
+   - watch
+   - watchEffect

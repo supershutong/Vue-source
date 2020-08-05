@@ -89,23 +89,24 @@ let computed = fn => {
 }
 
 let watch = (source, cb, options = {}) => {
-  let { immediate } = options
-  let getter = () => {
-    return source()
-  }
+  const { immediate } = options
+  const getter = () => source()
   let oldValue
-  let runner = effect(getter, {
+
+  const runner = effect(getter, {
     schedular: () => {
       applyCb()
     }
   })
-  let applyCb = () => {
+
+  const applyCb = () => {
     let newValue = runner()
     if (oldValue !== newValue) {
       cb(newValue, oldValue)
       oldValue = newValue
     }
   }
+
   if (immediate) {
     applyCb()
   } else {
